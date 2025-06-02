@@ -14,7 +14,7 @@ DATABASE = os.environ.get("DATABASE") or "employees"
 COLOR_FROM_ENV = os.environ.get('APP_COLOR') or "lime"
 DBPORT = int(os.environ.get("DBPORT"))
 
-# Create a connection to the MySQL database
+# Create a connection to MySQL database
 db_conn = connections.Connection(
     host= DBHOST,
     port=DBPORT,
@@ -26,7 +26,7 @@ db_conn = connections.Connection(
 output = {}
 table = 'employee';
 
-# Define the supported color codes
+#Define the supported color codes
 color_codes = {
     "red": "#e74c3c",
     "green": "#16a085",
@@ -38,10 +38,10 @@ color_codes = {
 }
 
 
-# Create a string of supported colors
+#Create a string of supported colors
 SUPPORTED_COLORS = ",".join(color_codes.keys())
 
-# Generate a random color
+#Generate a random color
 COLOR = random.choice(["red", "green", "blue", "blue2", "darkblue", "pink", "lime"])
 
 
@@ -112,7 +112,7 @@ def FetchData():
 
 if __name__ == '__main__':
     
-    #Check for Command Line Parameters for color
+    # Check for Command Line Parameters for color
     parser = argparse.ArgumentParser()
     parser.add_argument('--color', required=False)
     args = parser.parse_args()
@@ -128,7 +128,7 @@ if __name__ == '__main__':
     else:
         print("No command line argument or environment variable. Picking a Random Color =" + COLOR)
 
-    #Check if input color is a supported one
+    #Check if input color is a supported one.
     if COLOR not in color_codes:
         print("Color not supported. Received '" + COLOR + "' expected one of " + SUPPORTED_COLORS)
         exit(1)
