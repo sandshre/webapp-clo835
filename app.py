@@ -94,7 +94,7 @@ def FetchData():
         cursor.execute(select_sql,(emp_id))
         result = cursor.fetchone()
         
-        # Add No Employee found form
+        #Add No Employee found form
         output["emp_id"] = result[0]
         output["first_name"] = result[1]
         output["last_name"] = result[2]
@@ -112,7 +112,7 @@ def FetchData():
 
 if __name__ == '__main__':
     
-    # Check for Command Line Parameters for color
+    #Check for Command Line Parameters for color
     parser = argparse.ArgumentParser()
     parser.add_argument('--color', required=False)
     args = parser.parse_args()
@@ -128,7 +128,7 @@ if __name__ == '__main__':
     else:
         print("No command line argument or environment variable. Picking a Random Color =" + COLOR)
 
-    # Check if input color is a supported one
+    #Check if input color is a supported one
     if COLOR not in color_codes:
         print("Color not supported. Received '" + COLOR + "' expected one of " + SUPPORTED_COLORS)
         exit(1)
