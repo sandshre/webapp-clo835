@@ -29,7 +29,9 @@ jobs:
       run: |
         docker build -t app -f Dockerfile .
         docker tag app:latest 403539841960.dkr.ecr.us-east-1.amazonaws.com/webapp-clo835:latest
+        docker tag app:latest 403539841960.dkr.ecr.us-east-1.amazonaws.com/webapp-clo835:v2
         docker push 403539841960.dkr.ecr.us-east-1.amazonaws.com/webapp-clo835:latest
+        docker push 403539841960.dkr.ecr.us-east-1.amazonaws.com/webapp-clo835:v2
     - name: Build, tag, and push MySQL image
       run: |
         docker build -t mysql -f Dockerfile_mysql .
